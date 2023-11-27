@@ -103,13 +103,13 @@ Should return a xml file.
 
 ## Water depth
 
-- https://depth.openseamap.org/cgi-bin/mapserv.fcgi?PROJECTION=EPSG%3A900913&TYPE=png&TRANSPARENT=TRUE&LAYERS=trackpoints_cor1_test_dbs_10,trackpoints_cor1_test_10,test_zoom_10_cor_1_points_10,test_zoom_9_cor_1_points_10,test_zoom_8_cor_1_points_10,test_zoom_7_cor_1_points_10,test_zoom_6_cor_1_points_10,test_zoom_5_cor_1_points_10,test_zoom_4_cor_1_points_10,test_zoom_3_cor_1_points_10,test_zoom_2_cor_1_points_10&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fpng&SRS=EPSG%3A900913&BBOX=1095801.2373438,7044436.5257813,1252344.27125,7200979.5596875&WIDTH=1024&HEIGHT=1024
+- https://depth.openseamap.org/geoserver/openseamap/wms?PROJECTION=EPSG%3A900913&TYPE=png&TRANSPARENT=TRUE&LAYERS=openseamap:tracks_10m&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fpng&SRS=EPSG%3A900913&BBOX=1095801.2373438,7044436.5257813,1252344.27125,7200979.5596875&WIDTH=1024&HEIGHT=1024
 
 Should return a ```image/png```.
 
 ## Depth Contours
 
-- https://depth.openseamap.org/cgi-bin/mapserv.fcgi?LAYERS=contour,contour2&NUMZOOMLEVELS=22&TYPE=png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fpng&SRS=EPSG%3A900913&BBOX=1252344.27125,7044436.5257813,1408887.3051562,7200979.5596875&WIDTH=1024&HEIGHT=1024
+- https://depth.openseamap.org/geoserver/openseamap/wms?LAYERS=contour,contour2&NUMZOOMLEVELS=22&TYPE=png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fpng&SRS=EPSG%3A900913&BBOX=1252344.27125,7044436.5257813,1408887.3051562,7200979.5596875&WIDTH=1024&HEIGHT=1024
 
 Should return a ```image/png```.
 

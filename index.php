@@ -1104,28 +1104,12 @@
                         cookieKey: "WaterDepthTrackPointsLayerVisible10m",
                     },
                     source: new ol.source.TileWMS({
-                        url: 'https://depth.openseamap.org/cgi-bin/mapserv.fcgi',
+                        url: 'https://depth.openseamap.org/geoserver/openseamap/wms',
                         params: {
-                            'TRANSPARENT': 'TRUE',
-                            'LAYERS': [
-                                'trackpoints_cor1_test_dbs_10',
-                                'trackpoints_cor1_test_10',
-                                'test_zoom_10_cor_1_points_10',
-                                'test_zoom_9_cor_1_points_10',
-                                'test_zoom_8_cor_1_points_10',
-                                'test_zoom_7_cor_1_points_10',
-                                'test_zoom_6_cor_1_points_10',
-                                'test_zoom_5_cor_1_points_10',
-                                'test_zoom_4_cor_1_points_10',
-                                'test_zoom_3_cor_1_points_10',
-                                'test_zoom_2_cor_1_points_10',
-                            ].join(','), 'VERSION':'1.1.1'},
-                        ratio: 1,
+                            'LAYERS':'openseamap:tracks_10m',
+                            'VERSION':'1.3.0'
+                        },
                         hidpi: false,
-                        serverType: 'mapserver',
-                        tileLoadFunction:(imageTile, src) => {
-                            imageTile.getImage().src = src.replace('3857', '900913');
-                        }
                     }),
                 });
 
@@ -1140,10 +1124,6 @@
                     updateCheckboxAndCookie(evt.target);
                 });
 
-                // waterDepthTrackPoints100m = new WaterDepthTrackPoints100m(map, selectControl, {
-                //     layerId: 18
-                // });
-                // layer_waterdepth_trackpoints_100m = waterDepthTrackPoints100m.getLayer();
                 layer_waterdepth_trackpoints_100m = new ol.layer.Tile({
                     visible: false,
                     properties:{
@@ -1153,29 +1133,12 @@
                         cookieKey: "WaterDepthTrackPointsLayerVisible100m",
                     },
                     source: new ol.source.TileWMS({
-                        url: 'https://depth.openseamap.org/cgi-bin/mapserv.fcgi?SRS=EPSG:900913&',
+                        url: 'https://depth.openseamap.org/geoserver/openseamap/wms',
                         params: {
-                            'TRANSPARENT': 'TRUE',
-                            'LAYERS': [
-                                'trackpoints_cor1_test_dbs',
-                                'trackpoints_cor1_test',
-                                'test_zoom_10_cor_1_points',
-                                'test_zoom_9_cor_1_points',
-                                'test_zoom_8_cor_1_points',
-                                'test_zoom_7_cor_1_points',
-                                'test_zoom_6_cor_1_points',
-                                'test_zoom_5_cor_1_points',
-                                'test_zoom_4_cor_1_points',
-                                'test_zoom_3_cor_1_points',
-                                'test_zoom_2_cor_1_points'
-                            ].join(','),
-                            'VERSION':'1.3.0'},
-                        ratio: 1,
-                        hidpi: false,
-                        serverType: 'mapserver',
-                        tileLoadFunction:(imageTile, src) => {
-                            imageTile.getImage().src = src.replace('3857', '900913');
-                        }
+                            'LAYERS':'openseamap:tracks_100m',
+                            'VERSION':'1.3.0'
+                        },
+                        hidpi: false,                        
                     }),
                 });
                 layer_waterdepth_trackpoints_100m.on('change:visible', (evt)=>{
@@ -1189,13 +1152,6 @@
                     updateCheckboxAndCookie(evt.target);
                 });
                
-                // layer_waterdepth_contours = new OpenLayers.Layer.WMS("Contours", "https://depth.openseamap.org.de/cgi-bin/mapserv.fcgi?",
-                //     {
-                //       layers: ['contour','contour2'],
-                //       numZoomLevels: 22,
-                //       projection: this.projectionMercator,
-                //       type: 'png',
-                //       transparent: true},
                 layer_waterdepth_contours =new ol.layer.Tile({
                     visible: false,
                     maxZoom: 22,
@@ -1206,19 +1162,14 @@
                         cookieKey: "WaterDepthContoursVisible",
                     },
                     source: new ol.source.TileWMS({
-                        url: 'https://depth.openseamap.org/cgi-bin/mapserv.fcgi?SRS=EPSG:900913&',
+                        url: 'https://depth.openseamap.org/geoserver/openseamap/wms',
                         params: {
-                            'TRANSPARENT': 'TRUE',
                             'LAYERS': [
                                 'contour','contour2'
                             ].join(','),
                             'VERSION':'1.3.0'},
                         ratio: 1,
                         hidpi: false,
-                        serverType: 'mapserver',
-                        tileLoadFunction:(imageTile, src) => {
-                            imageTile.getImage().src = src.replace('3857', '900913');
-                        },
                         tileGrid: tileGrid512,
                     }),
                 });
